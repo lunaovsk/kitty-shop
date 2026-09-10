@@ -1,17 +1,9 @@
-import React, { useEffect } from "react";
-import { useRouter } from "expo-router";
+import React from "react";
 import { LoadingScreen } from "../components/LoadingScreen";
+import { useSplashScreenTimer } from "../hooks/useSplashScreenTimer";
 
 export default function Index() {
-  const router = useRouter();
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      router.replace("/login");
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, [router]);
+  useSplashScreenTimer(5000);
 
   return <LoadingScreen />;
 }
